@@ -29,9 +29,9 @@ const scraper = async (url) => {
         htmlParcer(value)
     })
 
-    console.log(storage.getEmails());
-    console.log(storage.getHistoryLinks());
-    console.log(storage.getLinksToGo());
+    // console.log(storage.getEmails());
+    // console.log(storage.getHistoryLinks());
+    // console.log(storage.getLinksToGo());
     iterationCount = iterationCount - 1;
     scraper(storage.getLinksToGo())
 }
