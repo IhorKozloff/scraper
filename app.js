@@ -4,7 +4,7 @@ const { fetchData, htmlParcer } = require('./helpers');
 const storage = require('./storage');
 
 const website = process.argv[2];
-let iterationCount = process.argv[3] || 3
+let iterationCount = process.argv[3] || 3;
 
 const scraper = async (url) => {
     
@@ -26,7 +26,7 @@ const scraper = async (url) => {
     
     onlyFullfilledResponses.forEach(({value}) => {
         storage.addLinkToHistory(value.visitedUrl);
-        htmlParcer(value)
+        htmlParcer(value);
     })
 
     // console.log(storage.getEmails());
