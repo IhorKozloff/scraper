@@ -1,14 +1,12 @@
 const axios = require('axios');
-const urlCreator = require('./urlCreator')
+const urlCreator = require('./urlCreator');
 
 const fetchData = async (address) => {
-    
-    const url = urlCreator(address);
+  const url = urlCreator(address);
 
-    const { data } = await axios.get(url, {headers: {"Accept-Encoding": "identity"}});
+  const { data } = await axios.get(url, { headers: { 'Accept-Encoding': 'identity' } });
 
-    return {markup: data, visitedUrl: url};
-
+  return { markup: data, visitedUrl: url };
 };
 
 module.exports = fetchData;
