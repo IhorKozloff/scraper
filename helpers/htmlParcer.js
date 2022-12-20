@@ -1,4 +1,5 @@
 const cheerio = require('cheerio');
+const validator = require('email-validator');
 const storage = require('../storage');
 const getBaseUrl = require('./getBaseUrl');
 
@@ -49,8 +50,11 @@ const htmlParcer = ({ markup, visitedUrl }) => {
     // valid scenario for emails
 
     if (link.startsWith('mailto:')) {
-      storage.addOneEmail(link.split(':')[1]);
-      return;
+      const email = link.split(':')[1];
+      if (validator.validate(email) === true) {
+        storage.addOneEmail(email);
+        return;
+      }
     }
 
     // "Everything that is not forbidden is allowed" - Friedrich de Schiller.

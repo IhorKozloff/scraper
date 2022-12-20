@@ -5,7 +5,8 @@
   const storage = require('./storage');
 
   const website = process.argv[2];
-  let iterationCount = process.argv[3] || 3;
+  const depth = process.argv[3] || 3;
+  let iterationCount = depth;
 
   const scraper = async (url) => {
     if (iterationCount === 0) {
@@ -14,7 +15,7 @@
       return;
     }
 
-    console.log('Depth lvl', iterationCount);
+    console.log('Depth lvl', depth - iterationCount + 1);
 
     const dataToFetch = Array.isArray(url) ? [...url] : [`${url}`];
 
